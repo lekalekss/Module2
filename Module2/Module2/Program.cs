@@ -200,7 +200,71 @@ internal class Program
         string vendorChesse = chesse.GetProductInfo("Dorblue");
         bool isExpiredChesee = chesse.IsProductExpired("Dorblue");
 
-        Console.WriteLine($"\nDorblue for price {priceChesee} $/lb is produced in {vendorChesse}. The product is expired: {isExpiredChesee}");
+        Console.WriteLine($"\nDorblue for price {priceChesee} $/lb is produced in {vendorChesse}. The product is expired: {isExpiredChesee}\n\n");
+
+
+        //Interfaces
+        //Task 1.
+
+        var circle = new Circle()
+        { 
+            Radius = 6 
+        };
+        
+        Console.WriteLine(circle.CalculateArea());
+
+        var rectangle = new Rectangle()
+        {
+            Hight = 3.2,
+
+            Width = 4.7
+        };
+        Console.WriteLine($"{rectangle.CalculateArea()}\n");
+
+        //Task 2.
+
+        Dog spits = new Dog();
+        GetSound(spits);
+
+        Cat kitten = new Cat();
+        GetSound(kitten);
+
+        static void GetSound(ISound sound)
+        {
+            sound.MakeSound();
+            
+        }
+
+        //Task 3.
+
+        TV samsungQLED = new TV();
+        UsingDevice(samsungQLED);
+
+        Laptop hpThinkness = new Laptop();
+        UsingDevice(hpThinkness);
+
+        static void UsingDevice(IElectronicDevice device)
+        {
+            device.TurnOn();
+            device.TurnOff();
+        }
+
+        //Task 4.
+
+        Bird eagle = new Bird();
+        Diagnose(eagle);
+
+        Airplane boeng747 = new Airplane();
+        Diagnose(boeng747);
+
+        static void Diagnose(IFlyable item)
+        {
+            item.Fly();
+
+        }
+        
+        
+
 
 
 
